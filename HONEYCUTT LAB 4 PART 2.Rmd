@@ -1,0 +1,33 @@
+---
+title: "Lab 4 part 2"
+author: "Randi Honeycutt"
+date: "10/21/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+First attach packages 
+```{r, include = FALSE}
+library(tidyverse)
+library(plotly)
+library(DT)
+
+```
+
+Make an interactive map of Iris data:
+```{r}
+
+iris_graph <- ggplot(data = iris, aes(x= Petal.Width, y = Petal.Length)) +
+  geom_point(aes(size =Sepal.Width, 
+                 color = Species)) +
+  labs(x = "Petal width (cm)",
+       y = "Petal length (cm)",
+       title = "Iris metrics")
+
+ggplotly(iris_graph)
+```
+
+
